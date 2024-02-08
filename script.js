@@ -2,8 +2,11 @@ const titleElement = document.querySelector(".title");
 const buttonsContainer = document.querySelector(".buttons");
 const yesButton = document.querySelector(".btn--yes");
 const noButton = document.querySelector(".btn--no");
-const catImg = document.querySelector(".cat-img");
+const milkMochaImage = document.querySelector(".milk-mocha-bear");
 const bgMusic = document.querySelector("#music");
+const openBtn = document.querySelector(".btn--open");
+const questionDiv = document.querySelector("#question");
+const openDiv = document.querySelector("#open");
 
 const MAX_IMAGES = 5;
 let hasImageChanged = false;
@@ -19,9 +22,17 @@ let texts = [
   "Jesmo li potpuno sigurni u tu odluku?",
   "Moguće je da postoji bolja odluka...",
   "Ponovo razmotri svoje opcije...",
+  "Moguće je da propuštaš nešto važno. Razmisli ponovno.",
+  "Koliko si sigurna da ćeš biti zadovoljna s tom odlukom?",
+  "Pokušaj slušati svoje unutarnje osjećaje...",
 ];
+questionDiv.classList.add("hidden");
 
-bgMusic.play();
+openBtn.addEventListener("click", function () {
+  bgMusic.play();
+  questionDiv.classList.remove("hidden");
+  openDiv.classList.add("hidden");
+});
 
 yesButton.addEventListener("click", handleYesClick);
 
@@ -44,18 +55,26 @@ noButton.addEventListener("mouseover", function () {
   noButton.style.left = newX + "px";
   noButton.style.top = newY + "px";
 
+  console.log(newX);
+  console.log(newY);
+
   const computedStyle = window.getComputedStyle(yesButton);
   const fontSize = parseFloat(computedStyle.getPropertyValue("font-size"));
-  const newFontSize = fontSize * 1.2;
+  const height = parseFloat(computedStyle.getPropertyValue("height"));
+  const width = parseFloat(computedStyle.getPropertyValue("width"));
+  const newFontSize = fontSize * 1.05;
+  const newHeightSize = height * 1.05;
+  const newWidthSize = width * 1.05;
 
   yesButton.style.fontSize = `${newFontSize}px`;
+  yesButton.style.height = `${newHeightSize}px`;
+  yesButton.style.width = `${newWidthSize}px`;
 });
 
 function handleYesClick() {
   titleElement.innerHTML = "Jisss!! Vidimo se uskoro :3";
   buttonsContainer.classList.add("hidden");
   document.body.style.backgroundColor = "#FBF1F2";
-  document.body.style.transition = "all 1s ease";
   changeImage("yes");
 }
 
@@ -73,5 +92,5 @@ function generateRandomText(texts) {
 }
 
 function changeImage(image) {
-  catImg.src = `assets/img/milk_mocha_bear_${image}.gif`;
+  milkMochaImage.src = `/assets/img/milk_mocha_bear_${image}.gif`;
 }

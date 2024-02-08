@@ -14,19 +14,27 @@
   </head>
   <body>
     <main class="container">
-      <audio id="music" style="opacity: 0" autoplay loop>
-        <source src="./assets/music/background_music.mp3" type="audio/mp3" />
-        Your browser does not support the audio element.
-      </audio>
-      <img
-        class="milk-mocha-bear"
-        src="assets/img/milk_mocha_bear.gif"
-        alt="Milk and Mocha Bear"
-      />
-      <p class="title">Hoćeš li biti moje Valentinovo?</p>
-      <div class="buttons">
-        <button type="button" class="btn btn--yes">Da</button>
-        <button type="button" class="btn btn--no">Ne</button>
+      <div class="open" id="open">
+        <button type="button" id="openBtn" class="btn btn--open">
+          Otvori me!
+        </button>
+      </div>
+
+      <div class="question" id="question">
+        <audio id="music" style="opacity: 0" autoplay loop>
+          <source src="./assets/music/background_music.mp3" type="audio/mp3" />
+          Your browser does not support the audio element.
+        </audio>
+        <img
+          class="milk-mocha-bear"
+          src="assets/img/milk_mocha_bear.gif"
+          alt="Milk and Mocha Bear"
+        />
+        <p class="title">Hoćeš li biti moje Valentinovo?</p>
+        <div class="buttons">
+          <button type="button" class="btn btn--yes">Da</button>
+          <button type="button" class="btn btn--no">Ne</button>
+        </div>
       </div>
     </main>
 
