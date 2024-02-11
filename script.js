@@ -82,7 +82,7 @@ function handleYesClick() {
   titleElement.innerHTML = "Jisss!! Vidimo se uskoro :3";
   buttonsContainer.classList.add("hidden");
   document.body.style.backgroundColor = "#FBF1F2";
-  changeImage("yes");
+  changeImage(yesGif);
 }
 
 function resizeYesButton() {
