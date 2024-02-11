@@ -11,6 +11,9 @@ const openDiv = document.querySelector("#open");
 const MAX_IMAGES = 5;
 let hasImageChanged = false;
 
+let angryGif = "https://i.ibb.co/pzyNhRh/milk-mocha-bear-angry.gif";
+let yesGif = "https://i.ibb.co/WVrS7Lm/milk-mocha-bear-yes.gif";
+
 let texts = [
   "Razmisli još jednom...",
   "Jesi li baš apsolutno uvjerena?",
@@ -36,9 +39,13 @@ openBtn.addEventListener("click", function () {
 
 yesButton.addEventListener("click", handleYesClick);
 
-noButton.addEventListener("mouseover", function () {
+noButton.addEventListener("mouseover", hangleNoClick);
+
+noButton.addEventListener("click", hangleNoClick);
+
+function hangleNoClick() {
   if (!hasImageChanged) {
-    changeImage("angry");
+    changeImage(angryGif);
     hasImageChanged = true;
   }
 
@@ -69,42 +76,7 @@ noButton.addEventListener("mouseover", function () {
   yesButton.style.fontSize = `${newFontSize}px`;
   yesButton.style.height = `${newHeightSize}px`;
   yesButton.style.width = `${newWidthSize}px`;
-});
-
-noButton.addEventListener("click", function () {
-  if (!hasImageChanged) {
-    changeImage("angry");
-    hasImageChanged = true;
-  }
-
-  let newText = generateRandomText(texts);
-  titleElement.textContent = newText;
-
-  let maxX = window.innerWidth - noButton.clientWidth;
-  let maxY = window.innerHeight - noButton.clientHeight;
-
-  let newX = Math.floor(Math.random() * maxX);
-  let newY = Math.floor(Math.random() * maxY);
-
-  noButton.style.position = "absolute";
-  noButton.style.left = newX + "px";
-  noButton.style.top = newY + "px";
-
-  console.log(newX);
-  console.log(newY);
-
-  const computedStyle = window.getComputedStyle(yesButton);
-  const fontSize = parseFloat(computedStyle.getPropertyValue("font-size"));
-  const height = parseFloat(computedStyle.getPropertyValue("height"));
-  const width = parseFloat(computedStyle.getPropertyValue("width"));
-  const newFontSize = fontSize * 1.05;
-  const newHeightSize = height * 1.05;
-  const newWidthSize = width * 1.05;
-
-  yesButton.style.fontSize = `${newFontSize}px`;
-  yesButton.style.height = `${newHeightSize}px`;
-  yesButton.style.width = `${newWidthSize}px`;
-});
+}
 
 function handleYesClick() {
   titleElement.innerHTML = "Jisss!! Vidimo se uskoro :3";
@@ -126,6 +98,6 @@ function generateRandomText(texts) {
   return texts[randomIndex];
 }
 
-function changeImage(image) {
-  milkMochaImage.src = `/assets/img/milk_mocha_bear_${image}.gif`;
+function changeImage(imageUrl) {
+  milkMochaImage.src = `${imageUrl}`;
 }
