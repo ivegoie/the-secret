@@ -17,6 +17,8 @@ img {
   pointer-events: none;
   user-select: none;
   -webkit-touch-callout: none;
+  width: 100%;
+  height: auto;
 }
 
 .container {
@@ -59,9 +61,9 @@ img {
 }
 
 .btn {
-  padding: 2rem 4.5rem;
+  padding: 1.5rem 3.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
 
   color: white;
   font-size: 2rem;
@@ -89,12 +91,27 @@ img {
   font-family: "Protest Riot", sans-serif;
   color: #EC1E27;
   font-size: 2.3rem;
+
   background-color: transparent;
   background-image: url("/assets/img/panda-envelope.png");
   background-position: center;
-  transition: all 0.5s ease-out;
 }
 
 .hidden {
   display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .btn--open {
+    padding: 15rem 10rem;
+  }
+
+  .container {
+    height: 80vh;
+  }
 }

@@ -71,6 +71,41 @@ noButton.addEventListener("mouseover", function () {
   yesButton.style.width = `${newWidthSize}px`;
 });
 
+noButton.addEventListener("click", function () {
+  if (!hasImageChanged) {
+    changeImage("angry");
+    hasImageChanged = true;
+  }
+
+  let newText = generateRandomText(texts);
+  titleElement.textContent = newText;
+
+  let maxX = window.innerWidth - noButton.clientWidth;
+  let maxY = window.innerHeight - noButton.clientHeight;
+
+  let newX = Math.floor(Math.random() * maxX);
+  let newY = Math.floor(Math.random() * maxY);
+
+  noButton.style.position = "absolute";
+  noButton.style.left = newX + "px";
+  noButton.style.top = newY + "px";
+
+  console.log(newX);
+  console.log(newY);
+
+  const computedStyle = window.getComputedStyle(yesButton);
+  const fontSize = parseFloat(computedStyle.getPropertyValue("font-size"));
+  const height = parseFloat(computedStyle.getPropertyValue("height"));
+  const width = parseFloat(computedStyle.getPropertyValue("width"));
+  const newFontSize = fontSize * 1.05;
+  const newHeightSize = height * 1.05;
+  const newWidthSize = width * 1.05;
+
+  yesButton.style.fontSize = `${newFontSize}px`;
+  yesButton.style.height = `${newHeightSize}px`;
+  yesButton.style.width = `${newWidthSize}px`;
+});
+
 function handleYesClick() {
   titleElement.innerHTML = "Jisss!! Vidimo se uskoro :3";
   buttonsContainer.classList.add("hidden");
