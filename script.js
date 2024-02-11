@@ -16,18 +16,17 @@ let yesGif = "https://i.ibb.co/WVrS7Lm/milk-mocha-bear-yes.gif";
 
 let texts = [
   "Razmisli još jednom...",
-  "Jesi li baš apsolutno uvjerena?",
+  "Želiš li biti moje valentinovo?",
   "Imaš li stvarno dovoljno razloga za to?",
   "Zar nemaš drugu opciju u vidu?",
   "Žao mi je, danas nemože biti po tvome.",
   "Moglo bi biti bolje da preskočiš tu opciju.",
-  "Stvarno neželiš?",
-  "Jesmo li potpuno sigurni u tu odluku?",
   "Moguće je da postoji bolja odluka...",
   "Ponovo razmotri svoje opcije...",
   "Moguće je da propuštaš nešto važno. Razmisli ponovno.",
-  "Koliko si sigurna da ćeš biti zadovoljna s tom odlukom?",
   "Pokušaj slušati svoje unutarnje osjećaje...",
+  "Slušaj svoje srce i razmisli o tome što zaista želiš.",
+  "Moguće je da postoji nešto što nisi uzela u obzir.",
 ];
 questionDiv.classList.add("hidden");
 
