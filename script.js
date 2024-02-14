@@ -7,8 +7,11 @@ const bgMusic = document.querySelector("#music");
 const openBtn = document.querySelector(".btn--open");
 const questionDiv = document.querySelector("#question");
 const openDiv = document.querySelector("#open");
+const pulsingLoading = document.querySelector(".pulsing-3");
 
-const MAX_IMAGES = 5;
+let activeTitle = "Valentinovo ❤️";
+let inactiveTitle = "Hej, vrati se! 😕";
+
 let hasImageChanged = false;
 
 let angryGif = "https://i.ibb.co/pzyNhRh/milk-mocha-bear-angry.gif";
@@ -20,7 +23,7 @@ let texts = [
   "Imaš li stvarno dovoljno razloga za to?",
   "Zar nemaš drugu opciju u vidu?",
   "Žao mi je, danas nemože biti po tvome.",
-  "Moglo bi biti bolje da preskočiš tu opciju.",
+  "Mislim da bi bilo bolje da preskočiš tu opciju.",
   "Moguće je da postoji bolja odluka...",
   "Ponovo razmotri svoje opcije...",
   "Moguće je da propuštaš nešto važno. Razmisli ponovno.",
@@ -28,7 +31,22 @@ let texts = [
   "Slušaj svoje srce i razmisli o tome što zaista želiš.",
   "Moguće je da postoji nešto što nisi uzela u obzir.",
 ];
+
+document.title = activeTitle;
+window.addEventListener("blur", (e) => {
+  document.title = inactiveTitle;
+});
+window.addEventListener("focus", (e) => {
+  document.title = activeTitle;
+});
+
 questionDiv.classList.add("hidden");
+openDiv.classList.add("hidden");
+
+setTimeout(function () {
+  openDiv.classList.remove("hidden");
+  pulsingLoading.classList.add("hidden");
+}, 2000);
 
 openBtn.addEventListener("click", function () {
   bgMusic.play();
